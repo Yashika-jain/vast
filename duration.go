@@ -45,7 +45,7 @@ func (dur *Duration) UnmarshalText(data []byte) (err error) {
 	f := Duration(time.Second)
 	for i := 2; i >= 0; i-- {
 		n, err := strconv.ParseInt(parts[i], 10, 32)
-		if err != nil || n < 0 || n > 59 {
+		if err != nil || n < 0 || n > 60 {
 			return fmt.Errorf("invalid duration: %s", data)
 		}
 		*dur += Duration(n) * f
